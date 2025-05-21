@@ -5,71 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Kari Kulu Hire Cars</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Kari Kulu Hire Cars</h1>
-            <nav>
-                <ul>
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="{{ url_for('vehicle_list') }}">Vehicles</a></li>
-                    <li><a href="{{ url_for('booking') }}">Book Now</a></li>
-                    <li><a href="{{ url_for('about') }}" class="active">About Us</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="{{ url_for('index') }}">
+                        <h1>KARI KULU <span>HIRE CARS</span></h1>
+                    </a>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+                    <li><a href="{{ url_for('vehicle_list') }}" class="nav-link">Vehicles</a></li>
+                    <li><a href="{{ url_for('booking') }}" class="nav-link">Book Now</a></li>
+                    <li><a href="{{ url_for('about') }}" class="nav-link">About Us</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
                 </ul>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
     <section class="page-header">
         <div class="container">
-            <h2>About Kari Kulu Hire Cars</h2>
-            <p>Your trusted vehicle rental service in Papua New Guinea</p>
+            <h1>About Us</h1>
+            <p>Learn more about Kari Kulu Hire Cars and our commitment to quality service</p>
         </div>
     </section>
 
-    <section class="about-content">
+    <section class="about-section">
         <div class="container">
-            <div class="about-section">
-                <h3>Our Story</h3>
+            <div class="about-content">
                 <div class="about-image">
                     <img src="{{ url_for('static', filename='images/story.jpg') }}" alt="Kari Kulu Hire Cars">
                 </div>
-                <p>Kari Kulu Hire Cars was established in 2010 with a vision to provide reliable, affordable, and well-maintained vehicles for both tourists and locals in Papua New Guinea. What started as a small family business with just three vehicles has now grown into one of the most trusted vehicle rental services in the country.</p>
-                <p>Our founder, Mr. Kari Kulu, recognized the need for a dependable vehicle rental service that understood the unique terrain and travel requirements of Papua New Guinea. With his extensive knowledge of the local roads and conditions, he built a company that specializes in providing vehicles that are perfectly suited for PNG's diverse landscapes.</p>
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Kari Kulu Hire Cars is a premier vehicle rental service based in Port Moresby, Papua New Guinea. We specialize in providing reliable, well-maintained vehicles for both personal and corporate clients throughout Port Moresby and the Central Province.</p>
+                    
+                    <p>Since our establishment, we have built a reputation for excellent customer service, competitive rates, and a diverse fleet of vehicles to meet all transportation needs. Whether you need a compact car for city driving, a 4WD for rugged terrain, or a bus for group transportation, we have the perfect vehicle for your requirements.</p>
+                    
+                    <p>Our mission is to provide safe, reliable, and affordable transportation solutions that exceed our customers' expectations. We take pride in maintaining our vehicles to the highest standards and offering personalized service to ensure your complete satisfaction.</p>
+                </div>
             </div>
-            
-            <div class="about-section">
-                <h3>Our Mission</h3>
-                <p>At Kari Kulu Hire Cars, our mission is to provide safe, reliable, and affordable vehicle rental services that exceed our customers' expectations. We are committed to maintaining the highest standards of vehicle quality and customer service.</p>
-                <ul class="mission-points">
-                    <li>To provide well-maintained vehicles that ensure safety and comfort</li>
-                    <li>To offer competitive and transparent pricing with no hidden fees</li>
-                    <li>To deliver exceptional customer service at every touchpoint</li>
-                    <li>To contribute positively to the local community and economy</li>
-                </ul>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safety</h3>
+                    <p>We prioritize the safety of our customers by maintaining our vehicles to the highest standards and ensuring they are equipped with essential safety features.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Reliability</h3>
+                    <p>We understand the importance of dependable transportation. Our well-maintained fleet ensures you can rely on our vehicles for all your journeys.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Quality Service</h3>
+                    <p>We are committed to providing exceptional customer service and going the extra mile to ensure your rental experience is smooth and hassle-free.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Affordability</h3>
+                    <p>We offer competitive rates and flexible rental options to provide value for money without compromising on quality or service.</p>
+                </div>
             </div>
-            
-            <div class="about-section">
-                <h3>Why Choose Us</h3>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <h4>Local Expertise</h4>
-                        <p>Our team has extensive knowledge of Papua New Guinea's roads, terrain, and travel conditions.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>Quality Vehicles</h4>
-                        <p>Our fleet is regularly serviced and maintained to ensure reliability and safety.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>Competitive Pricing</h4>
-                        <p>We offer the best value for money with transparent pricing and no hidden fees.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>Customer Support</h4>
-                        <p>Our dedicated team is available 24/7 to assist you with any queries or issues.</p>
-                    </div>
+        </div>
+    </section>
+
+    <section class="why-choose-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="why-choose-content">
+                <div class="why-choose-text">
+                    <ul class="why-choose-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>Diverse Fleet</h3>
+                                <p>From compact cars to 4WDs, buses, and commercial vehicles, we have a wide range of options to suit your needs.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>Well-Maintained Vehicles</h3>
+                                <p>All our vehicles undergo regular maintenance and inspections to ensure they are in excellent condition.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>Competitive Rates</h3>
+                                <p>We offer reasonable rates with special discounts for long-term rentals and corporate clients.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>Flexible Rental Options</h3>
+                                <p>Choose from daily, weekly, or monthly rental periods to suit your schedule and budget.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>Local Knowledge</h3>
+                                <p>Our team has extensive knowledge of Port Moresby and the surrounding areas to assist with your travel plans.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="why-choose-image">
+                    <img src="{{ url_for('static', filename='images/why-choose-us.jpg') }}" alt="Our Fleet">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Our Service?</h2>
+                <p>Book your vehicle today and discover why we are the preferred choice for car rentals in Port Moresby.</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('vehicle_list') }}" class="btn btn-primary">View Our Vehicles</a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -78,11 +159,11 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Kari Kulu Hire Cars</h3>
-                    <p>Your trusted vehicle rental service in Papua New Guinea.</p>
+                <div class="footer-logo">
+                    <h2>KARI KULU <span>HIRE CARS</span></h2>
+                    <p>Your trusted car rental service in Port Moresby</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="{{ url_for('index') }}">Home</a></li>
@@ -92,15 +173,23 @@
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-contact">
                     <h3>Contact Us</h3>
-                    <p>Phone: +675 123 4567</p>
-                    <p>Email: info@karikuluhirecars.com</p>
-                    <p>Address: Port Moresby, Papua New Guinea</p>
+                    <p><i class="fas fa-phone"></i> +675 7533 3871</p>
+                    <p><i class="fas fa-envelope"></i> admnkarikulu@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Port Moresby, PNG</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Kari Kulu Hire Cars. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kari Kulu Hire Cars. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
