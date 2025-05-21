@@ -5,33 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Confirmation - Kari Kulu Hire Cars</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Kari Kulu Hire Cars</h1>
-            <nav>
-                <ul>
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="{{ url_for('vehicle_list') }}">Vehicles</a></li>
-                    <li><a href="{{ url_for('booking') }}" class="active">Book Now</a></li>
-                    <li><a href="{{ url_for('about') }}">About Us</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="{{ url_for('index') }}">
+                        <h1>KARI KULU <span>HIRE CARS</span></h1>
+                    </a>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+                    <li><a href="{{ url_for('vehicle_list') }}" class="nav-link">Vehicles</a></li>
+                    <li><a href="{{ url_for('booking') }}" class="nav-link">Book Now</a></li>
+                    <li><a href="{{ url_for('about') }}" class="nav-link">About Us</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
                 </ul>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
-    <section class="confirmation">
+    <section class="confirmation-section">
         <div class="container">
-            <div class="confirmation-box">
-                <h2>Booking Request Received</h2>
-                <div class="checkmark">✓</div>
-                <p>Thank you for your booking request. We have received your information and will contact you shortly to confirm your reservation.</p>
-                <p>If you have any questions, please don't hesitate to contact us at +675 123 4567 or info@karikuluhirecars.com.</p>
-                <div class="buttons">
-                    <a href="{{ url_for('index') }}" class="btn">Return to Home</a>
-                    <a href="{{ url_for('vehicle_list') }}" class="btn">Browse More Vehicles</a>
+            <div class="confirmation-container">
+                <div class="confirmation-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h1>Booking Request Submitted</h1>
+                    <p>Thank you for choosing Kari Kulu Hire Cars. Your booking request has been received.</p>
+                </div>
+                
+                <div class="confirmation-details">
+                    <h2>Booking Details</h2>
+                    
+                    <div class="confirmation-info">
+                        <div class="info-group">
+                            <h3>Vehicle Information</h3>
+                            <div class="vehicle-info">
+                                <img src="{{ url_for('static', filename='images/' + vehicle.image) }}" alt="{{ vehicle.name }}">
+                                <div>
+                                    <h4>{{ vehicle.name }}</h4>
+                                    <p><strong>Category:</strong> {{ vehicle.category }}</p>
+                                    <p><strong>Daily Rate:</strong> K{{ vehicle.daily_rate }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-group">
+                            <h3>Rental Period</h3>
+                            <p><strong>Pickup Date:</strong> {{ booking.pickup_date }}</p>
+                            <p><strong>Return Date:</strong> {{ booking.return_date }}</p>
+                        </div>
+                        
+                        <div class="info-group">
+                            <h3>Customer Information</h3>
+                            <p><strong>Name:</strong> {{ booking.name }}</p>
+                            <p><strong>Email:</strong> {{ booking.email }}</p>
+                            <p><strong>Phone:</strong> {{ booking.phone }}</p>
+                            {% if booking.message %}
+                            <p><strong>Special Requests:</strong> {{ booking.message }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="confirmation-message">
+                    <h3>What's Next?</h3>
+                    <p>Our team will review your booking request and contact you shortly to confirm your reservation. Please keep this confirmation for your records.</p>
+                    <p>If you have any questions or need to make changes to your booking, please contact us at:</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +675 7533 3871</p>
+                        <p><i class="fas fa-envelope"></i> admnkarikulu@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="confirmation-actions">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">Return to Home</a>
+                    <a href="{{ url_for('vehicle_list') }}" class="btn btn-outline">Browse More Vehicles</a>
                 </div>
             </div>
         </div>
@@ -40,11 +96,11 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Kari Kulu Hire Cars</h3>
-                    <p>Your trusted vehicle rental service in Papua New Guinea.</p>
+                <div class="footer-logo">
+                    <h2>KARI KULU <span>HIRE CARS</span></h2>
+                    <p>Your trusted car rental service in Port Moresby</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="{{ url_for('index') }}">Home</a></li>
@@ -54,15 +110,23 @@
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-contact">
                     <h3>Contact Us</h3>
-                    <p>Phone: +675 123 4567</p>
-                    <p>Email: info@karikuluhirecars.com</p>
-                    <p>Address: Port Moresby, Papua New Guinea</p>
+                    <p><i class="fas fa-phone"></i> +675 7533 3871</p>
+                    <p><i class="fas fa-envelope"></i> admnkarikulu@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Port Moresby, PNG</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Kari Kulu Hire Cars. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kari Kulu Hire Cars. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
